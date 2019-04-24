@@ -1,9 +1,10 @@
 import krpc
 import time
+import callbacks
 
 conn = None
 
-while conn is None: # while no connection to kRPC server, try every 15 secs
+while conn is None:  # while no connection to kRPC server, try every 15 secs
     try:
         conn = krpc.connect(
             name='KCP',
@@ -14,3 +15,4 @@ while conn is None: # while no connection to kRPC server, try every 15 secs
     time.sleep(15)
 
 vessel = conn.space_center.active_vessel
+callbacks.setup(conn, vessel)
