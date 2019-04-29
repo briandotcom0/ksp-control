@@ -1,13 +1,13 @@
 import RPi.GPIO as GPIO
 import pins
+import singleton
 # import krpc  #???
 
-conn=0
-vessel=0
+# conn= None
+vessel= None
 
-def setup(c,v):
-    conn=c
-    vessel=v
+def init():
+    vessel=singleton.getVessel()
     pins.setup()
 
 def rcs(channel):

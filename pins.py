@@ -21,4 +21,4 @@ def setup():
 
 def cleanup():
     GPIO.cleanup(lights)
-    GPIO.cleanup([rcsin,sasin])
+    GPIO.cleanup([rcsin, sasin])
