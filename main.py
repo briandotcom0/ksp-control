@@ -1,11 +1,10 @@
-import krpc
-import time
-import callbacks
+# import krpc
+# import time
+# import callbacks
 import singleton
 
-singleton.init()
-callbacks.init()
+single = singleton.Singleton()
 # conn = None
-
+single.init()
 vessel = singleton.getVessel()
-callbacks.setup(conn, vessel)
+
