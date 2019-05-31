@@ -2,6 +2,7 @@ import time
 import krpc
 import callbacks
 import pins
+import i2c
 
 class Singleton:
 
@@ -10,6 +11,7 @@ class Singleton:
     ip=None
     callback = None
     pin = None
+    i2c=None
 
     def init(self):
         self.conn=None
@@ -18,9 +20,18 @@ class Singleton:
         self.callback=callbacks.Callbacks()
         self.pin=pins.Pins()
         self.callback.init(self, self.pin)
+        self.i2c=i2c.I2C()
+        self.i2c.init(self)
+
+    def clean(self):
+        self.i2c.clean()
+        self.pin.cleanup()
+        self.conn.close()
 
 
     def getIP(self):
+        if self.ip is None:
+            self.ip='192.168.0.209'
         return self.ip
 
     def getConn(self):
@@ -28,7 +39,7 @@ class Singleton:
             try:
                 self.conn = krpc.connect(
                     name='KCP',
-                    address='192.168.0.209',
+                    address=self.ip,
                     rpc_port=50000, stream_port=50001)
             except ConnectionRefusedError:
                 print("Is KSP running?")
