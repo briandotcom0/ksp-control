@@ -37,6 +37,6 @@ class Singleton:
 
     def getVessel(self):
         if self.vessel is None:
-            vessel=self.conn.space_center.active_vessel
+            self.vessel=self.conn.space_center.active_vessel
         return self.vessel
 
