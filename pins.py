@@ -1,16 +1,16 @@
 import RPi.GPIO as GPIO
 
 class Pins:
-    rcsin = 3
-    rcsout = 4
+    rcsin = 4
+    rcsout = 14
     sasin=5
-    sasout=6
-    gearin=7
-    gearout=8
+    sasout=15
+    gearin=6
+    gearout=16
     brakes=9
     solar=10
-    rotA1=11
-    rotA2=12
+    rotA1=23
+    rotA2=24
     rotB1=13
     rotB2=14
 
