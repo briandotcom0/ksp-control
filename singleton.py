@@ -31,7 +31,7 @@ class Singleton:
 
     def getIP(self):
         if self.ip is None:
-            self.ip='192.168.0.209'
+            self.ip='192.168.137.1'
         return self.ip
 
     def getConn(self):
