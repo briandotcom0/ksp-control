@@ -31,7 +31,7 @@ class Singleton:
 
     def getIP(self):
         if self.ip is None:
-            self.ip='192.168.137.1'
+            self.ip='192.168.1.133'
         return self.ip
 
     def getConn(self):
@@ -39,9 +39,9 @@ class Singleton:
             try:
                 self.conn = krpc.connect(
                     name='KCP',
-                    address=self.ip,
+                    address=self.getIP(),
                     rpc_port=50000, stream_port=50001)
-            except ConnectionRefusedError:
+            except:  # ConnectionRefusedError:
                 print("Is KSP running?")
             time.sleep(15)
         return self.conn
