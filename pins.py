@@ -22,7 +22,7 @@ class Pins:
     def setup(self, callback, s):
         self.calls=callback
         self.single=s
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
 
         GPIO.setup(self.rcsin, GPIO.IN)
         GPIO.setup(self.sasin, GPIO.IN)
